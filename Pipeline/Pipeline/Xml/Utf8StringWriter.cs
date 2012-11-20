@@ -1,0 +1,13 @@
+﻿using System.IO;
+using System.Text;
+
+namespace Pipeline.XmlTools
+{
+    public class Utf8StringWriter : StringWriter
+    {
+        public override Encoding Encoding
+        {
+            get { return Encoding.UTF8; }
+        }
+    }
+}

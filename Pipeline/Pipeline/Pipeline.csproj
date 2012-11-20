@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{26D4B937-604A-4F09-9575-2161969502D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pipeline</RootNamespace>
+    <AssemblyName>Pipeline</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Events\EntityEvent.cs" />
+    <Compile Include="Common\Events\EntityGetEvent.cs" />
+    <Compile Include="Common\Events\EntityPostEvent.cs" />
+    <Compile Include="Common\Events\EntityUpdateEvent.cs" />
+    <Compile Include="Common\Events\Event.cs" />
+    <Compile Include="Common\Events\IEvent.cs" />
+    <Compile Include="Common\Events\InternalEntityUpdate.cs" />
+    <Compile Include="Extensions\ActionExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Extensions\StringFormatExtensions.cs" />
+    <Compile Include="Model\EntityIdentifier.cs" />
+    <Compile Include="Pipe\IPayload.cs" />
+    <Compile Include="Pipe\IPipelineProcessor.cs" />
+    <Compile Include="Pipe\IPipelineStep.cs" />
+    <Compile Include="Pipe\IProcess.cs" />
+    <Compile Include="Pipe\Order.cs" />
+    <Compile Include="Pipe\Payload.cs" />
+    <Compile Include="Pipe\PipelineProcessor.cs" />
+    <Compile Include="Pipe\PipelineRegistry.cs" />
+    <Compile Include="Pipe\StepCallInformation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Results\ContinueResult.cs" />
+    <Compile Include="Results\HtmlOutcome.cs" />
+    <Compile Include="Results\HtmlResult.cs" />
+    <Compile Include="Results\Outcome.cs" />
+    <Compile Include="Results\Pipeline.cs" />
+    <Compile Include="Results\PipelineResult.cs" />
+    <Compile Include="Results\SuccessResult.cs" />
+    <Compile Include="Xml\Utf8StringWriter.cs" />
+    <Compile Include="Xml\Xml.cs" />
+    <Compile Include="Xml\XmlExtensions.cs" />
+    <Compile Include="Xml\XmlNamespaceManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
