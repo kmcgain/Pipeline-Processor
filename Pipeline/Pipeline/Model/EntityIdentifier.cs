@@ -2,11 +2,11 @@
 {
     using Extensions;
 
-    public abstract class EntityIdentifier
+    public class EntityIdentifier
     {
         private string resource;
 
-        protected EntityIdentifier(string resource)
+        public EntityIdentifier(string resource)
         {
             this.resource = resource.Replace(" ", "").ToLowerInvariant();
         }

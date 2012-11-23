@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{26D4B937-604A-4F09-9575-2161969502D0}</ProjectGuid>
+    <ProjectGuid>{0DB33157-093B-4472-A3CE-9B0A7810747C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pipeline</RootNamespace>
-    <AssemblyName>Pipeline</AssemblyName>
+    <RootNamespace>BasicExample</RootNamespace>
+    <AssemblyName>BasicExample</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NSubstitute">
+      <HintPath>..\packages\NSubstitute.1.4.3.0\lib\NET40\NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Pipeline">
+      <HintPath>..\..\..\lib\Pipeline.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap">
       <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,47 +52,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Events\EntityEvent.cs" />
-    <Compile Include="Common\Events\EntityGetEvent.cs" />
-    <Compile Include="Common\Events\EntityPostEvent.cs" />
-    <Compile Include="Common\Events\EntityUpdateEvent.cs" />
-    <Compile Include="Common\Events\Event.cs" />
-    <Compile Include="Common\Events\IEvent.cs" />
-    <Compile Include="Common\Events\InternalEntityUpdate.cs" />
-    <Compile Include="Extensions\ActionExtensions.cs" />
-    <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Extensions\LinqExtensions.cs" />
-    <Compile Include="Extensions\StringFormatExtensions.cs" />
-    <Compile Include="Model\EntityIdentifier.cs" />
-    <Compile Include="Pipe\IPayload.cs" />
-    <Compile Include="Pipe\IPipelineProcessor.cs" />
-    <Compile Include="Pipe\IPipelineStep.cs" />
-    <Compile Include="Pipe\IProcess.cs" />
-    <Compile Include="Pipe\Order.cs" />
-    <Compile Include="Pipe\Payload.cs" />
-    <Compile Include="Pipe\PipelineProcessor.cs" />
-    <Compile Include="Pipe\PipelineRegistry.cs" />
-    <Compile Include="Pipe\StepCallInformation.cs" />
+    <Compile Include="ProcessorRegistry.cs" />
+    <Compile Include="TestPerson.cs" />
+    <Compile Include="Person\PersonRegisteredEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Results\ContinueResult.cs" />
-    <Compile Include="Results\HtmlOutcome.cs" />
-    <Compile Include="Results\HtmlResult.cs" />
-    <Compile Include="Results\Outcome.cs" />
-    <Compile Include="Results\Pipeline.cs" />
-    <Compile Include="Results\PipelineResult.cs" />
-    <Compile Include="Results\SuccessResult.cs" />
-    <Compile Include="Xml\Utf8StringWriter.cs" />
-    <Compile Include="Xml\Xml.cs" />
-    <Compile Include="Xml\XmlExtensions.cs" />
-    <Compile Include="Xml\XmlNamespaceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetDir)$(ProjectName).dll" "$(SolutionDir)lib\$(ProjectName).dll"</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
