@@ -52,9 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\ApplyAll.cs" />
+    <Compile Include="Entity\Person\PersonRegisteredEvent.cs" />
+    <Compile Include="Entity\Person\ValidatePersonPost.cs" />
     <Compile Include="ProcessorRegistry.cs" />
     <Compile Include="TestPerson.cs" />
-    <Compile Include="Person\PersonRegisteredEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
